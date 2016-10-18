@@ -17,6 +17,11 @@ and open the template in the editor.
               href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" 
               integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" 
               crossorigin="anonymous">
+
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" 
+              rel="stylesheet" 
+              integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" 
+              crossorigin="anonymous">
     </head>
     <body>
         <header class="navbar navbar-static-top">
@@ -28,26 +33,95 @@ and open the template in the editor.
                 </div>
             </div>
         </header>
-        
+
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
                     <div class="page-header">
+                        <a class="btn btn-primary pull-right"
+                           href="demo.html">
+                            View demo
+                        </a>
                         <h1>Documentation</h1>
                     </div>
-                    
-                    <div>
+
+                    <p>
                         This is a Javascript library to pop a URL as a new window.
                         If possible, the pop window will under the current window (AKA, pop-under).
                         The pop will happen automatically or after a click event.
+                    </p>
+
+                    <div class="page-header">
+                        <h3>Quick start</h3>
                     </div>
+
+                    <p>
+                        Download and unzip 
+                        <a href="download/popunder-1.0.0.zip">
+                            <i class="fa fa-download"></i>
+                            Pop under library 1.0.0
+                        </a>
+                        to the desired location on your website, let's say
+                        <em>/js</em>
+                    </p>
+                    
+                    <p>
+                        Put the following code to the very end of page you to pop URL.
+                        Replace the <em>url</em> variable and javascript location accordingly.
+                    </p>
+
+
+                    <pre>
+&lt;script async defer src="/js/show-promote.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+var popURL = "//google.com";
+function onPopUnderLoaded() {
+    this.pop(popURL);
+}
+&lt;/script&gt;
+                    </pre>
+                    
+                    <div class="page-header">
+                        <h3>Methods</h3>
+                    </div>
+                    
+                    <h4 class="text-primary">pop(popURL)</h4>
+                    <p>
+                        Try to pop the URL by the given <var>popURL</var> parameter.
+                    </p>
+                    
+                    <h4 class="text-primary">frequency(num, hours)</h4>
+                    <p>
+                        Set the pop frequency. The default of unlimited.
+                    </p>
+                    <p>
+                        <var>num</var>: How many times can pop in the duration given by <var>hours</var> parameter. 
+                        -1 for unlimited pop.
+                    </p>
+                    <p>
+                        <var>hours</var>: The time span in hours for limited pop number to <var>num</var> parameter. Default to be 24. 
+                        Set to 0 for per browser session.
+                    </p>
+                    
+                    <h4 class="text-primary">onPop(callback)</h4>
+                    <p>
+                        Call the <var>callback</var> function after the URL was popped.
+                    </p>
                 </div>
                 <div class="col-md-3">
-                    
+
                 </div>
             </div>
         </div>
         
+        <footer style="margin-top: 20px;">
+            <div class="container">
+            </div>
+        </footer>
+
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+                integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" 
         crossorigin="anonymous"></script>

@@ -8,7 +8,7 @@ var jshint = require('gulp-jshint');
 var uglify = require('gulp-uglify');
 var zip = require('gulp-zip');
 
-gulp.task('default', ['js', "package"]);
+gulp.task('default', ['js', 'package', 'update-demo']);
 
 gulp.task('js', ['pop-under']);
 
@@ -29,5 +29,11 @@ gulp.task('package', function(done) {
     gulp.src('./dist/*')
             .pipe(zip('popunder-' + version + '.zip'))
             .pipe(gulp.dest('./docs/download'))
+            .on('end', done);
+});
+
+gulp.task('update-demo', function(done) {
+    gulp.src('./dist/show-promote.min.js')
+            .pipe(gulp.dest('./docs/js'))
             .on('end', done);
 });
