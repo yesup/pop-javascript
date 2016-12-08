@@ -56,7 +56,7 @@
 // for tab under, you might be able to pop the ad URL directly, without worry the pop blocker.
 var popURL = "//google.com/";
 function onPopUnderLoaded() {
-    this.frequency(1,1).useTabUnder(true).pop(popURL);
+    this.useTabUnder(true).pop(popURL);
 }
 &lt;/script&gt;                
 </pre>
@@ -73,7 +73,7 @@ function onPopUnderLoaded() {
         <script>
             var popURL = "//google.com";
             function onPopUnderLoaded() {
-                this.frequency(1,1).useTabUnder(true).pop(popURL);
+                this.useTabUnder(true).pop(popURL);
             }
         </script>
     </body>

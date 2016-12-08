@@ -102,8 +102,12 @@
             }
         },
         doTabUnder: function(url) {
-            window.open(window.location.href, "_blank");
-            window.location = url;
+            this.popDone();
+            var win = window.open(window.location.href, "_blank");
+            setTimeout(function() {
+                win.document.isTabUnder = true;
+                window.location = url;
+            }, 1);
         },
         openWin: function (url, name) {
             var params = "toolbar=0,scrollbars=1,statusbar=1,resizable=1,menubar=0,location=1,top=0,left=0,width=" + this.winWidth + ",height=" + this.winHeight;
