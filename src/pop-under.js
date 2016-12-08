@@ -3,6 +3,7 @@
  */
 
 (function () {
+    console.log(window.opener);
     // the interval for checking page loaded, we do not need very fast
     var checkLoadInterval = 1000;
     var onloadHook = "onPopUnderLoaded";
@@ -48,7 +49,7 @@
                 this.tryPop(url);
             }
             this.onClick(function () {
-                this.tryPop(url);
+                this.popOnClick(url);
             }.bind(this));
         },
         onPop: function (callback) {
@@ -79,9 +80,6 @@
             }.bind(this), 1500);
         },
         tryPop: function (url) {
-            if (this.hasPop) {
-                return;
-            }
             var date = new Date(), winName = "Ads" + date.getTime(), popwinCLK;
             popwinCLK = this.openWin(url, winName);
             if (popwinCLK) {
@@ -92,6 +90,20 @@
                 window.focus();
                 this.popDone();
             }
+        },
+        popOnClick: function(url) {
+            if (this.hasPop) {
+                return;
+            }
+            if ( this.tabUnder ) {
+                this.doTabUnder(url);
+            } else {
+                this.tryPop(url);
+            }
+        },
+        doTabUnder: function(url) {
+            window.open(window.location.href, "_blank");
+            window.location = url;
         },
         openWin: function (url, name) {
             var params = "toolbar=0,scrollbars=1,statusbar=1,resizable=1,menubar=0,location=1,top=0,left=0,width=" + this.winWidth + ",height=" + this.winHeight;
