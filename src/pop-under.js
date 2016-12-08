@@ -34,6 +34,9 @@
         pop: function (url) {
             // give chance for other setting works
             setTimeout(function () {
+                if ( window.document.isTabUnder ) {
+                    return;
+                }
                 var popnum = this.getPopNum();
                 if (this.num < 0 || popnum < this.num) {
                     this.startPop(url);
