@@ -32,19 +32,49 @@
         <div class="container">
             <div class="page-header">
                 <h1>
-                    Pop under demo
+                    Tab under demo
                 </h1>
             </div>
             
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <a target="_blank" href="demo-basic.html">Basic</a>
-                </li>
-                <li class="list-group-item">
-                    <a target="_blank" href="demo-tab-under.html">Tab under</a>
-                </li>
-            </ul>
+            <div class="jumbotron">
+                <p>
+                    This page will pop a page after loaded or on a mouse click event.
+                </p>
+                <p>
+                    <button class="btn btn-primary btn-lg">
+                        Try click
+                    </button>
+                </p>
+            </div>
+            
+            <div class="page-header">
+                <h3>Code</h3>
+            </div>
+<pre>
+&lt;script async defer src="js/show-promote.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+// for tab under, you might be able to pop the ad URL directly, without worry the pop blocker.
+var popURL = "//google.com/";
+function onPopUnderLoaded() {
+    this.frequency(1,1).useTabUnder(true).pop(popURL);
+}
+&lt;/script&gt;                
+</pre>
         </div>
-
+        
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+                integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" 
+        crossorigin="anonymous"></script>
+        
+        <script async defer src="js/show-promote.min.js"></script>
+        <script>
+            var popURL = "promote.html";
+            function onPopUnderLoaded() {
+                this.pop(popURL);
+            }
+        </script>
     </body>
 </html>

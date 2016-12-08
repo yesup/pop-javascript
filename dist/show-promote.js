@@ -11,6 +11,7 @@
     var handler = {
         num: -1, // no limit
         hours: 24,
+        tabUnder: false,
         onPopCallback: null,
         winWidth: window.screen.availWidth - 122,
         winHeight: window.screen.availHeight - 122,
@@ -23,6 +24,10 @@
             }
             this.num = num;
             this.hours = hours;
+            return this;
+        },
+        useTabUnder: function(allow) {
+            this.tabUnder = allow;
             return this;
         },
         pop: function (url) {
