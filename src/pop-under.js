@@ -38,7 +38,7 @@
                 if (this.num < 0 || popnum < this.num) {
                     this.startPop(url);
                 }
-            }.bind(this), 0);
+            }.bind(this), 1);
 
             return this;
         },
